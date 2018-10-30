@@ -2,18 +2,31 @@ using System;
 using System.Collections.Generic;
 namespace randomprogzcsharp
 {
-
+    //Check if given 2 strings are anagram or not 
     class Program
     {
        
         static void Main(string[] args)
         {
-           string a="abcdef";
-           string b="bcdaeh";
-            int count=1;
-           Dictionary<char,int> ob1 = new Dictionary<char,int>();
+            string a="abcdef";
+            string b="bcdaef";
             
-            if(a.Length!=b.Length) Console.WriteLine("Not anagram");
+            Program obj = new Program();
+            
+            int res = obj.Anagram(a,b);
+
+            if(res==1) Console.WriteLine("Yes its an anagram");
+            else    Console.WriteLine("not an anagram");
+            
+
+        }
+        int Anagram(string a ,string b)
+        {
+            Dictionary<char,int> ob1 = new Dictionary<char,int>();
+            int count=1;
+         
+            if(a.Length!=b.Length) return 0;
+            
             else
             {
                 foreach (char c in a)
@@ -29,15 +42,15 @@ namespace randomprogzcsharp
                     else 
                     {
                         count=0;
-                        Console.WriteLine("not anagram");
+                        
                         break;
                     }
 
                 }
-                if(count==1)
-                Console.WriteLine("yes it anagram");
-            }
-           
+                   
+                
+             }
+          return count; 
         }
     }
 }
